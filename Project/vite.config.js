@@ -6,11 +6,13 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/sass/app.scss',
-                'resources/js/app.js',
+                'resources/sass/app.scss',          // Your main SCSS
+                'resources/js/app.js',              // Main JS
+                'resources/js/home.js',             // Home React page
+                'resources/js/Profile.jsx', // Profile React page (renamed .jsx)
             ],
             refresh: true,
         }),
-        react(),
+        react(), // React plugin handles JSX
     ],
 });

@@ -3,16 +3,17 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 
+// Home route (name displayed only)
 Route::get('/home', function () {
-    return view('home'); // will just show "Jayson T. Velasco"
+    return view('home'); 
 });
 
-// Serve the Profile Manager UI (home.js from public folder)
-Route::get('/profile-manager', function () {
-    return response()->file(public_path('home.js'));
+// Profile Manager (React UI)
+Route::get('/profile', function () {
+    return view('profile'); // profile.blade.php mounts profile.js
 });
 
-// Profile CRUD API routes
+// Profile API
 Route::get('/profiles', [ProfileController::class, 'index']);
 Route::post('/profiles', [ProfileController::class, 'store']);
 Route::put('/profiles/{id}', [ProfileController::class, 'update']);
